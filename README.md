@@ -89,56 +89,8 @@ DNA offers unprecedented storage density: **215 petabytes per gram** (~10⁹ tim
 
 Q-DIC combines three algorithmic layers:
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│                    INPUT IMAGE (H×W)                        │
-└────────────────────────┬────────────────────────────────────┘
-                         │
-         ┌───────────────▼────────────────┐
-         │  MODULE 1: Image Preprocessing  │
-         │  • Histogram analysis           │
-         │  • K-means clustering (k=200)   │
-         │  • Representative pixel values  │
-         └───────────────┬────────────────┘
-                         │
-         ┌───────────────▼─────────────────────────────────────┐
-         │  MODULE 2: Quantum Optimization                     │
-         │  ┌──────────────────────────────────────────────┐  │
-         │  │  LAYER 1: Grover's Algorithm (O(√N))        │  │
-         │  │  • 16-qubit quantum circuit                  │  │
-         │  │  • Oracle: marks good codons                 │  │
-         │  │  • Diffusion: amplifies probability          │  │
-         │  │  • ~256 iterations → candidate codon         │  │
-         │  └──────────────────┬───────────────────────────┘  │
-         │                     │                               │
-         │  ┌──────────────────▼───────────────────────────┐  │
-         │  │  LAYER 2: VQE Refinement                     │  │
-         │  │  • Hardware-efficient ansatz (L=3, 48 params)│  │
-         │  │  • SPSA gradient descent (150 iterations)    │  │
-         │  │  • 15-25% cost reduction → optimal codon     │  │
-         │  └──────────────────────────────────────────────┘  │
-         └───────────────┬─────────────────────────────────────┘
-                         │
-         ┌───────────────▼────────────────┐
-         │  MODULE 3: DNA Encoding        │
-         │  • Pixel → 8-base codon        │
-         │  • Apply thermodynamic rules   │
-         │  • Build DNA sequence          │
-         └───────────────┬────────────────┘
-                         │
-         ┌───────────────▼─────────────────────┐
-         │  MODULE 4: Error Correction         │
-         │  • Surface code (distance-3, 9×)    │
-         │  • Reed-Solomon RS(255,223, 14%)    │
-         │  • DNA-optimized syndrome decoding  │
-         └───────────────┬─────────────────────┘
-                         │
-         ┌───────────────▼────────────────┐
-         │   OUTPUT: Protected DNA         │
-         │   Compression Ratio: 8.7-10.8×  │
-         │   SSIM: 0.918-0.946             │
-         └─────────────────────────────────┘
-```
+
+<img src="docs/Images/Figure1.png" style="width:640px"></img><br>
 
 ---
 
