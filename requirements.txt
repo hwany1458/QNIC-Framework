@@ -1,16 +1,16 @@
 # Core dependencies
-qiskit==0.45.0
-qiskit-aer==0.13.0
+qiskit==2.2.3
+qiskit-aer==0.17.2
 qiskit-ibmq-provider==0.20.2
 
 # Scientific computing
-numpy>=1.24.0
-scipy>=1.10.0
-pandas>=2.0.0
+numpy>=1.26.4
+scipy>=1.26.4
+pandas>=2.2.3
 
 # Image processing
-Pillow>=9.5.0
-scikit-image>=0.20.0
+Pillow>=11.0.0
+scikit-image>=0.24.0
 opencv-python>=4.7.0
 
 # Visualization
@@ -40,7 +40,7 @@ sphinx>=6.2.0
 sphinx-rtd-theme>=1.2.0
 
 # Progress bars
-tqdm>=4.65.0
+tqdm>=4.66.5
 
 # Configuration
 pyyaml>=6.0
