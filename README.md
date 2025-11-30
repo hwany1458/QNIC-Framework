@@ -1,25 +1,24 @@
 # Quantum-Enhanced DNA Image Compression (Q-DIC)
 
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
-[![Qiskit 0.45.0](https://img.shields.io/badge/qiskit-0.45.0-purple.svg)](https://qiskit.org/)
+[![Qiskit 2.2.3](https://img.shields.io/badge/qiskit-2.2.3-purple.svg)](https://qiskit.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.XXXXXXX.svg)](https://doi.org/10.5281/zenodo.XXXXXXX)
 
 **A novel theoretical framework integrating quantum computing algorithms with DNA-based molecular storage for next-generation image compression.**
 
 <p align="center">
-  <img src="docs/images/system_overview.png" alt="Q-DIC System Overview" width="800">
+  <!--img src="docs/images/system_overview.png" alt="Q-DIC System Overview" width="800"-->
 </p>
 
 ---
 
 ## Paper Information
 
-**Title:** Quantum-Enhanced DNA Image Compression
+**Title:** Quantum-Enhanced DNA Image Compression: A Theoretical Framework with Simulation-Based Validation and NISQ Implementation Strategy
 
 **Authors:** Yong-Hwan Lee¹, Wan-Bum Lee¹  
 **Affiliation:** ¹Department of Game Content, Wonkwang University, South Korea  
-**Journal:**   
+**Journal:** Applied Sciences (MDPI), 2025  
 **Status:** Under Review
 
 **Abstract:**  
@@ -322,7 +321,7 @@ assert abs(ΔG_hairpin) < 3  # kcal/mol
 
 ```bash
 # Clone repository
-git clone https://github.com/[username]/qdic-compression.git
+git clone https://github.com/hwany1458/qdic-compression.git
 cd qdic-compression
 
 # Create virtual environment
@@ -336,7 +335,7 @@ pip install -r requirements.txt
 pip install -e .
 
 # Verify installation
-python -c "import qdic; print(f'Q-DIC v{qdic.__version__} installed successfully!')"
+python -c "import qdic; print(f'Q-DIC v{qdic.__version__} installed successfully.')"
 ```
 
 #### Option 2: Docker (Isolated Environment)
@@ -428,17 +427,17 @@ Original image: (512, 512), 262144 bytes
       → DNA length: 2097152 bases
 [4/4] Adding error correction (Surface code + RS)...
       → Protected length: 2330173 bases
-✓ Compression complete! Ratio: 8.72×
+✓ Compression complete. Ratio: 8.72×
   Original: 262144 bytes
   Compressed: 30049 bytes (DNA)
 
-Compression Results:
+✓ Compression Results:
   DNA sequence: 2330173 bases
   Codon dictionary: 200 unique codons
   Compression ratio: 8.72×
   DNA storage: 582543 bytes
 
-Quality Metrics:
+✓ Quality Metrics:
   SSIM: 0.9234 (1.0 = perfect)
   PSNR: 38.41 dB (>40 dB = excellent)
 
@@ -533,16 +532,16 @@ img = np.array(Image.open("data/test_images/gradient.png").convert("L"))
 
 encoder = QDICEncoder(
     variant="nisq",      # NISQ variant required for current hardware
-    backend=backend,     # Real quantum computer!
+    backend=backend,     # Real quantum computer
     n_clusters=50        # Reduce for faster execution
 )
 
-print("\n⚠️  This will use real quantum hardware. Typical wait time: 10-30 minutes")
+print("\n This will use real quantum hardware. Typical wait time: 10-30 minutes")
 compressed = encoder.compress(img)
 
-print(f"\n✓ Quantum hardware compression complete!")
-print(f"  Measured CR: {compressed.ratio:.2f}×")
-print(f"  Backend: {backend.name()}")
+print(f"\n Quantum hardware compression complete.")
+print(f" Measured CR: {compressed.ratio:.2f}×")
+print(f" Backend: {backend.name()}")
 ```
 
 ### Example 4: Custom Cost Function Weights
@@ -573,7 +572,7 @@ compressed = encoder.compress(img)
 
 ---
 
-## 🧪 Reproducing Paper Results
+## Reproducing Paper Results
 
 ### Quick Test (5 minutes)
 
@@ -743,7 +742,7 @@ def create_oracle(cost_threshold):
     circuit = QuantumCircuit(16)
     
     # Decompose cost evaluation into quantum gates
-    # This is the computationally hard part!
+    # This is the computationally hard part.
     
     # 1. Fidelity check (MSE < threshold)
     circuit.append(FidelityGate(pixel_target), qubits)
@@ -952,13 +951,12 @@ def decode_dna_with_rs(protected_dna):
 
 **Quantum Computing Basics:**
 1. IBM Quantum Learning: https://learning.quantum.ibm.com/
-2. Qiskit Textbook: https://qiskit.org/textbook/
+2. Qiskit Tutorial: https://quantum.cloud.ibm.com/docs/ko/guides
 3. Michael Nielsen & Isaac Chuang: "Quantum Computation and Quantum Information"
 
 **DNA Storage:**
 1. Church Lab Papers: https://arep.med.harvard.edu/gmc/
 2. Microsoft DNA Storage: https://www.microsoft.com/en-us/research/project/dna-storage/
-3. ETH Zurich DNA Archive: https://srl.inf.ethz.ch/research/dna.html
 
 **Image Compression:**
 1. Rafael Gonzalez: "Digital Image Processing"
@@ -1044,30 +1042,16 @@ If you use this code or reference our work, please cite:
 }
 ```
 
-### Software Citation (BibTeX)
-
-```bibtex
-@software{lee2024qdic_software,
-  title={Q-DIC: Quantum-Enhanced DNA Image Compression - Implementation},
-  author={Lee, Yong-Hwan and Lee, Wan-Bum},
-  year={2024},
-  month={11},
-  version={1.0.0},
-  publisher={Zenodo},
-  doi={10.5281/zenodo.XXXXXXX},
-  url={https://github.com/[username]/qdic-compression}
-}
-```
 
 ### APA Style
 
-Lee, Y.-H., & Lee, W.-B. (2025). Quantum-enhanced DNA image compression: A theoretical framework with comprehensive simulation validation and NISQ implementation strategy. *Applied Sciences, 15*(X), XXX-XXX. https://doi.org/10.3390/applXXXXXXX
+Lee, Y.-H., & Lee, W.-B. (2025). Quantum-enhanced DNA image compression: A theoretical framework with  simulation-based validation and NISQ implementation strategy. *Applied Sciences, 15*(X), XXX-XXX. https://doi.org/10.3390/applXXXXXXX
 
 ---
 
 ## Contributing
 
-We welcome contributions! Here's how you can help:
+We welcome contributions. Here's how you can help:
 
 ### Reporting Bugs
 
@@ -1124,21 +1108,20 @@ black src/qdic/ --check
 **Yong-Hwan Lee** (Primary Contact)
 - **Affiliation:** Department of Game Content, Wonkwang University
 - **Email:** hwany1458@empal.com
-- **ORCID:** [0000-0000-0000-0000]
 - **Research Interests:** Quantum computing, DNA storage, image compression
 
-**Wan-Bum Lee** (Co-Author)
+**Wan-Bum Lee** 
 - **Affiliation:** Wonkwang University
 - **Email:** lwbwon@wku.ac.kr
-- **Research Interests:** Applied quantum algorithms, bioinformatics
+- **Research Interests:** 
 
 ### Getting Help
 
 **Bug Reports & Feature Requests:**
-- GitHub Issues: https://github.com/[username]/qdic-compression/issues
+- GitHub Issues: https://github.com/hwany1458/qdic-compression/issues
 
 **General Questions:**
-- GitHub Discussions: https://github.com/[username]/qdic-compression/discussions
+- GitHub Discussions: https://github.com/hwany1458/qdic-compression/discussions
 - Email: hwany1458@empal.com
 
 **IBM Quantum Support:**
@@ -1149,7 +1132,7 @@ black src/qdic/ --check
 
 - **Twitter:** @QDICproject (hypothetical)
 - **arXiv:** https://arxiv.org/abs/XXXX.XXXXX (preprint)
-- **GitHub:** https://github.com/[username]/qdic-compression
+- **GitHub:** https://github.com/hwany1458/qdic-compression
 
 ---
 
@@ -1207,27 +1190,11 @@ SOFTWARE.
 **Inspiration:**
 - George Church Lab (Harvard) - Pioneer in DNA data storage
 - IBM Quantum Team - Quantum computing accessibility
-- Nature Physics 2024 paper on quantum coherence in DNA
 
 **Test Images:**
 - USC-SIPI Image Database
-- Medical Image Database (anonymized CT/MRI scans)
+- Medical Image Database (anonymized CT/MRI)
 - Landsat Satellite Imagery (public domain)
-
----
-
-## Project Statistics
-
-![GitHub stars](https://img.shields.io/github/stars/[username]/qdic-compression?style=social)
-![GitHub forks](https://img.shields.io/github/forks/[username]/qdic-compression?style=social)
-![GitHub watchers](https://img.shields.io/github/watchers/[username]/qdic-compression?style=social)
-
-- **Lines of Code:** ~4,000 (Python)
-- **Test Coverage:** 92%
-- **Documentation:** 100% of public API
-- **Contributors:** 2 (open to more!)
-- **Stars:** (pending public release)
-- **Forks:** (pending public release)
 
 ---
 
@@ -1242,14 +1209,14 @@ SOFTWARE.
 - [x] Unit tests
 - [x] Paper submission
 
-### Version 1.1 (Q1 2025)
+### Version 1.1 (Q1 2026)
 - [ ] GPU acceleration (Qiskit Aer GPU)
 - [ ] Parallel VQE (multi-processing)
 - [ ] Additional error correction schemes
 - [ ] Extended test suite (100+ images)
 - [ ] Performance profiling
 
-### Version 2.0 (Q2-Q3 2025)
+### Version 2.0 (Q2-Q3 2026)
 - [ ] Color image compression (RGB)
 - [ ] Video compression (frame-by-frame)
 - [ ] Web interface (Flask/Django)
@@ -1257,50 +1224,13 @@ SOFTWARE.
 - [ ] Docker containers
 - [ ] Cloud deployment (AWS, Azure, GCP)
 
-### Version 3.0 (Q4 2025 - 2026)
+### Version 3.0 (Q4 2026 - 2027)
 - [ ] Physical DNA synthesis validation
 - [ ] Integration with Oxford Nanopore sequencing
 - [ ] Real-time compression pipeline
 - [ ] Distributed quantum compression
 - [ ] Production-ready DNA storage system
 
----
-
-## ⭐ Star History
-
-[![Star History Chart](https://api.star-history.com/svg?repos=[username]/qdic-compression&type=Date)](https://star-history.com/#[username]/qdic-compression&Date)
-
----
-
-## Gallery
-
-<p align="center">
-  <img src="docs/images/compression_comparison.png" alt="Compression Comparison" width="800">
-  <br>
-  <em>Figure: Original vs. Compressed images across different categories</em>
-</p>
-
-<p align="center">
-  <img src="docs/images/grover_amplitude.png" alt="Grover Amplitude" width="600">
-  <br>
-  <em>Figure: Grover's algorithm amplitude amplification over 256 iterations</em>
-</p>
-
-<p align="center">
-  <img src="docs/images/vqe_convergence.png" alt="VQE Convergence" width="600">
-  <br>
-  <em>Figure: VQE cost function convergence (150 iterations)</em>
-</p>
-
----
-
-<p align="center">
-  <strong>Made with ❤️ by the Q-DIC Team</strong>
-  <br>
-  <sub>Bridging quantum computing, DNA storage, and image processing</sub>
-  <br><br>
-  <a href="#quantum-enhanced-dna-image-compression-q-dic">Back to Top ↑</a>
-</p>
 
 ---
 
