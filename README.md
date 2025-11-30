@@ -92,7 +92,6 @@ Q-DIC combines three algorithmic layers:
 
 <img src="docs/Images/Figure1.png" style="width:640px"></img><br>
 
----
 
 ## Algorithm Deep Dive
 
